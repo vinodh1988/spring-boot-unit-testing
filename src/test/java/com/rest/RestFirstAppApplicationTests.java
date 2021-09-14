@@ -1,6 +1,8 @@
 package com.rest;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
@@ -32,7 +34,7 @@ class RestFirstAppApplicationTests {
 	  @DisplayName("Autowiring of service must work")
 	  public void serviceTest() {
 		  
-		  assertTrue(idata!=null);
+		  assertNotNull(idata);
 	  }
 	  
 	  
@@ -41,5 +43,13 @@ class RestFirstAppApplicationTests {
 	  public void serviceTest2() {
 		  
 		  assertTrue(idata2==null);
+	  }
+	  
+	  @Test
+	  @DisplayName("Length Check")
+	  public void lengthCheck() {
+		  assertAll("Length Assertions",
+				     ()->assertTrue(idata.getNames().size()>0),
+				     ()->assertTrue(idata.getNames().size()<=20));
 	  }
 }
