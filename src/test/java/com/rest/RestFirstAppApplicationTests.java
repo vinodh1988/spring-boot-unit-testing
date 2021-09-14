@@ -19,6 +19,9 @@ class RestFirstAppApplicationTests {
 	@Autowired
 	  IDataService idata;
 	
+	@Autowired
+	  IDataService idata3;
+	
 	  IDataService idata2;
 	
 	  
@@ -51,5 +54,11 @@ class RestFirstAppApplicationTests {
 		  assertAll("Length Assertions",
 				     ()->assertTrue(idata.getNames().size()>0),
 				     ()->assertTrue(idata.getNames().size()<=20));
+	  }
+	  
+	  @Test
+	  @DisplayName("DataService must be singleton")
+	  public void singletonCheck() {
+		  assertEquals(idata,idata3);
 	  }
 }
