@@ -3,6 +3,7 @@ package com.rest;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.rest.controllers.FirstController;
 import com.rest.services.IDataService;
+import com.rest.util.UnluckyException;
 
 @SpringBootTest
 class RestFirstAppApplicationTests {
@@ -46,6 +48,7 @@ class RestFirstAppApplicationTests {
 	  public void serviceTest2() {
 		  
 		  assertTrue(idata2==null);
+		  
 	  }
 	  
 	  @Test
@@ -53,12 +56,24 @@ class RestFirstAppApplicationTests {
 	  public void lengthCheck() {
 		  assertAll("Length Assertions",
 				     ()->assertTrue(idata.getNames().size()>0),
-				     ()->assertTrue(idata.getNames().size()<=20));
+				     ()->assertEquals(idata.getNames().size(),7));
 	  }
 	  
 	  @Test
 	  @DisplayName("DataService must be singleton")
 	  public void singletonCheck() {
 		  assertEquals(idata,idata3);
+	  }
+	  
+	  @Test
+	  @DisplayName("Asserting Exception Scenario")
+	  public void checkException() {
+		  Exception e=assertThrows(UnluckyException.class,()->idata.hopeForTheBest(1));
+		  assertEquals(e.getMessage(),"Unlucky Exception");
+		  
+		 /*  e=assertThrows(UnluckyException.class,()->idata.hopeForTheBest(3));
+		  
+		  assertEquals(e.getMessage(),"Unlucky Exception");*/
+		  
 	  }
 }
