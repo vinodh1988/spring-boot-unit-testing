@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rest.model.Person;
 import com.rest.services.IDataService;
 
 @RestController
@@ -24,5 +25,10 @@ public class FirstController {
 	 @GetMapping("/names")
 	 public List<String> list(){
 		 return data.getNames();
+	 }
+	 
+	 @GetMapping("/people")
+	 public List<Person> getPeople(){
+		 return data.getPeople();
 	 }
 }
