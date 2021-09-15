@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.rest.model.Person;
 import com.rest.repository.PeopleRepository;
+import com.rest.util.AlreadyExistingException;
 import com.rest.util.UnluckyException;
 
 @Service
@@ -39,4 +40,30 @@ public class DataService implements IDataService {
 	 public List<Person> getPeople(){
 		 return people.findAll();
 	 }
+
+
+	@Override
+	public void add(Person p) throws AlreadyExistingException {
+		// TODO Auto-generated method stub
+	    Person exists = people.findBySno(p.getSno());
+	    if(exists!=null) {
+	    	throw new AlreadyExistingException();
+	    }
+	    else
+	    	people.save(p);
+	}
+
+
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void update(int id, Person p) {
+		// TODO Auto-generated method stub
+		
+	}
 }
