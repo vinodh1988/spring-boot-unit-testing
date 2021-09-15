@@ -1,0 +1,55 @@
+
+
+1. Spring boot uses a parent project to
+control your app
+
+2. A developer can user various spring boot starters
+to develop projects/services according to their needs
+
+  for example if you user
+      
+	  spring-boot-starter-web
+	  
+	  spring boot assumes that you are going to 
+	    build
+		
+		  1. web application
+		  2. rest service
+		  3. soap service
+		  
+		  all the libraries which are necassary for developing
+		  and testing this three things would be downloaded
+		  automatically
+		
+		When you are creating a restcontroller and request handlers
+		
+		spring boot by default assumes that input/request body
+		in json format
+		 and it will try to convert into java
+		 
+		 and similary when you are return java objects
+		 it will convert into json by default
+		 
+		 but a developer has always option explicitly
+		 specify whats the request content type is
+		 and response content type by using attribute
+		 produces and consumes
+		 
+similary at the data layer
+    
+	popularly developers user
+	  
+	  spring-boot-data-jpa
+	  
+	  data jpa is a popular spring framework which comes
+	  up with various repositories
+	  
+	  all you need to extend an interface like JPARepository
+	  
+	  and the implementation of that interface
+	  would be made by data-jpa-framework itself
+	  
+	  all crud operations are taken care
+	  
+	  This library automatically converts result sets into
+	  java objects

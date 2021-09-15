@@ -1,5 +1,6 @@
 package com.rest.controllers;
 
+import java.awt.PageAttributes.MediaType;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class FirstController {
 		 return "First Spring boot application";
 	 }
 	 
-	 @GetMapping("/names")
+	 @GetMapping(value="/names")
 	 public List<String> list(){
 		 return data.getNames();
 	 }
