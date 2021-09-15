@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.rest.model.Person;
+import com.rest.repository.PeopleRepository;
 import com.rest.services.IDataService;
 import com.rest.util.AlreadyExistingException;
 
@@ -19,6 +20,8 @@ public class DbTests {
 	@Autowired
 	IDataService service;
 	
+	@Autowired
+	PeopleRepository people;
 	@ParameterizedTest
 	@ValueSource(ints = { 1,2,3})
 	@DisplayName("Checking Exception for already Existing Records")
@@ -39,6 +42,15 @@ public class DbTests {
 		  assertEquals(e.getMessage(),"Record Already Existing");
 	}
 	
+	@ParameterizedTest
+	@DisplayName("Test to check DB records")
+	@CsvFileSource(resources="/random.csv",numLinesToSkip=1)
+	void existence(int sno,String city,String name) {
+		Person p=people.findBySno(sno);
+		assertEquals(sno,p.getSno());
+		assertEquals(name, p.getName());
+		assertEquals(city, p.getCity());
+	}
 	
 
 }
