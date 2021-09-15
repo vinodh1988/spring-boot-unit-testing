@@ -1,0 +1,22 @@
+
+
+http://localhost:9090/api/fun
+
+  The resource to moved
+
+http://abc.com:5404/api/fun
+
+
+If the request itself is problem?
+  
+   1. wrong url  -404 -not found
+   2. wrong input data - 400 bad Request
+   3. Wrong headers - 400 Bad Request
+   4. Wrong security detials/no security details
+        401- Un Authorized
+   5. Wrong persmissions
+         403-Forbidden
+		 
+Server related problems
+
+  500- internal server errorhttps://github.com/vinodh1988/spring-boot-unit-testing

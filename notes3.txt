@@ -1,0 +1,15 @@
+
+
+@Service
+@Component
+@Controller
+@Repository
+
+-----------------------------
+
+Unless you explicitly Specify the scope
+
+by default only instance of the class will be 
+created regards where and how you autowire it
+..basically stereotyped classes usually by default
+behave as singletons

@@ -1,0 +1,47 @@
+Rest Service
+
+ HTTP Request
+ 
+    Kind of request - HttpMethod/Http Verb
+	  GET
+	  POST
+	  DELETE
+	  PUT - new /update[replace]
+	  PATCH  -partially update
+	  
+	  CONNECT 
+	  OPTION- to know which method a url supports
+	  HEAD - GET and HEAD are same the only difference
+	       server would return only response header but not
+		   response body
+	  TRACE - In the response along with response header
+	      and body even the request header is added
+	  
+ HTTP - http request 
+     
+	 http headers
+	      Content-Type  - Type of the data which client
+		                    is sending
+		  Authorization  - Security information
+		  Accept   - Expected result type from the server
+		  
+		  User-Agent - details about requesting client
+ 
+ 
+ HTTP Response
+ 
+ 
+   HttpResponse has two parts
+   
+     HttpHeader
+	   Status
+	      STatus code
+			2xx  - Successfuly processed
+h		    1xx -information
+			 
+			3xx
+			4xx
+			5xx
+	 Http Body
+     
+ 
