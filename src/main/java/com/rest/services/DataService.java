@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.rest.model.Person;
 import com.rest.repository.PeopleRepository;
 import com.rest.util.AlreadyExistingException;
+import com.rest.util.RecordNotFoundException;
 import com.rest.util.UnluckyException;
 
 @Service
@@ -16,6 +17,8 @@ public class DataService implements IDataService {
 	
 	@Autowired 
 	PeopleRepository people;
+	
+
 
 
 	 public List<String> getNames()
@@ -55,9 +58,14 @@ public class DataService implements IDataService {
 
 
 	@Override
-	public void delete(Integer id) {
+	public void delete(Integer id) throws RecordNotFoundException {
 		// TODO Auto-generated method stub
-		
+		 Person exists = people.findBySno(id);
+		    if(exists==null) {
+		    	throw new RecordNotFoundException();
+		    }
+		    else
+		    	people.delete(new Person(id,null,null));
 	}
 
 
