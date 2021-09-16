@@ -22,7 +22,7 @@ public class PeopleIntegrationTests {
    private int port;
    
    @Autowired TestRestTemplate restTemplate;
-   
+   /*
    @Test
    @Order(1)
    public void testPeople()
@@ -43,6 +43,6 @@ public class PeopleIntegrationTests {
 			   this.restTemplate.postForEntity("http://localhost:"+port+"/api/people", p, Person.class);
 	   assertThat(response.getBody().getName()).isEqualTo("John");
 	   assertEquals(response.getStatusCodeValue(), 201);
-   }
+   }*/
    
 }
